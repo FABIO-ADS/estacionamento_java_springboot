@@ -2,6 +2,9 @@ package com.biomello.demoparkapi.web.controller;
 
 import com.biomello.demoparkapi.entity.Usuario;
 import com.biomello.demoparkapi.service.UsuarioService;
+import com.biomello.demoparkapi.web.controller.dto.UsuarioCreateDto;
+import com.biomello.demoparkapi.web.controller.dto.UsuarioResponseDto;
+import com.biomello.demoparkapi.web.controller.dto.mapper.UsuarioMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +19,11 @@ public class UsuarioController {
 
     private final UsuarioService usuarioService;
     @PostMapping
-    public ResponseEntity<Usuario> create(@RequestBody Usuario usuario){
+    public ResponseEntity<UsuarioResponseDto> create(@RequestBody UsuarioCreateDto createDto){
 
-        Usuario user = usuarioService.salvar(usuario);
+         Usuario user = usuarioService.salvar(UsuarioMapper.toUsuario(createDto));
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(UsuarioMapper.toDto(user));
     }
 
     @GetMapping("/{id}")
