@@ -4,6 +4,7 @@ import com.biomello.demoparkapi.entity.Usuario;
 import com.biomello.demoparkapi.service.UsuarioService;
 import com.biomello.demoparkapi.web.controller.dto.UsuarioCreateDto;
 import com.biomello.demoparkapi.web.controller.dto.UsuarioResponseDto;
+import com.biomello.demoparkapi.web.controller.dto.UsuarioSenhaDto;
 import com.biomello.demoparkapi.web.controller.dto.mapper.UsuarioMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -35,11 +36,11 @@ public class UsuarioController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Usuario> updatePassword(@PathVariable Long id, @RequestBody Usuario usuario){
+    public ResponseEntity<Void> updatePassword(@PathVariable Long id, @RequestBody UsuarioSenhaDto dto){
 
-        Usuario user = usuarioService.editarSenha(id, usuario.getPassword());
+        Usuario user = usuarioService.editarSenha(id, dto.getSenhaAtual(), dto.getNovaSenha(), dto.getConfirmaSenha());
 
-        return ResponseEntity.ok(user);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping
