@@ -40,14 +40,14 @@ public class UsuarioController {
 
         Usuario user = usuarioService.editarSenha(id, dto.getSenhaAtual(), dto.getNovaSenha(), dto.getConfirmaSenha());
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.noContent().build() ;
     }
 
     @GetMapping
-    public ResponseEntity<List<Usuario>> getAll(){
+    public ResponseEntity<List<UsuarioResponseDto>> getAll(){
 
         List<Usuario> users = usuarioService.buscarTodos();
 
-        return ResponseEntity.ok(users);
+        return ResponseEntity.ok(UsuarioMapper.toListDto(users));
     }
 }
