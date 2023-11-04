@@ -1,6 +1,7 @@
 package com.biomello.demoparkapi.service;
 
 import com.biomello.demoparkapi.entity.Usuario;
+import com.biomello.demoparkapi.exception.EntityNotFoundException;
 import com.biomello.demoparkapi.exception.UsernameUniqueViolationException;
 import com.biomello.demoparkapi.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +28,7 @@ public class UsuarioService {
     @Transactional(readOnly = true)
     public  Usuario buscarPorId(Long id) {
         return usuarioRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("Usuário não encontrado!!")
+                () -> new EntityNotFoundException(String.format("Usuário id=%s não encontrado!!", id))
         );
     }
     @Transactional
