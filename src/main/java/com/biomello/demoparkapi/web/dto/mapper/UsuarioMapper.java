@@ -1,8 +1,8 @@
-package com.biomello.demoparkapi.web.controller.dto.mapper;
+package com.biomello.demoparkapi.web.dto.mapper;
 
 import com.biomello.demoparkapi.entity.Usuario;
-import com.biomello.demoparkapi.web.controller.dto.UsuarioCreateDto;
-import com.biomello.demoparkapi.web.controller.dto.UsuarioResponseDto;
+import com.biomello.demoparkapi.web.dto.UsuarioCreateDto;
+import com.biomello.demoparkapi.web.dto.UsuarioResponseDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 

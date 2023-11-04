@@ -2,10 +2,10 @@ package com.biomello.demoparkapi.web.controller;
 
 import com.biomello.demoparkapi.entity.Usuario;
 import com.biomello.demoparkapi.service.UsuarioService;
-import com.biomello.demoparkapi.web.controller.dto.UsuarioCreateDto;
-import com.biomello.demoparkapi.web.controller.dto.UsuarioResponseDto;
-import com.biomello.demoparkapi.web.controller.dto.UsuarioSenhaDto;
-import com.biomello.demoparkapi.web.controller.dto.mapper.UsuarioMapper;
+import com.biomello.demoparkapi.web.dto.UsuarioCreateDto;
+import com.biomello.demoparkapi.web.dto.UsuarioResponseDto;
+import com.biomello.demoparkapi.web.dto.UsuarioSenhaDto;
+import com.biomello.demoparkapi.web.dto.mapper.UsuarioMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
